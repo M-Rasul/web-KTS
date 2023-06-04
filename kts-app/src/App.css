@@ -40,3 +40,13 @@
     transform: rotate(360deg);
   }
 }
+body {
+  font-family: "RobotoMono", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
