@@ -1,0 +1,35 @@
+.ava {
+    width: 50px;
+    border-radius: 50px;
+}
+/* .flex3_width {
+    width: 150px;
+} */
+.flex_column_width {
+    position: relative;
+    width: 150px;
+    justify-content: center;
+}
+p {
+    margin-left: 10px;
+    color: #bbb7b7;
+}
+.dropdown {
+    position: absolute;
+    top: 20px;
+    border-radius: 10px;
+    background-color: #bbb7b7;
+    align-self: flex-end;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex2_withHover {
+    cursor: pointer;
+    width: 100%;
+}
+.flex2_withHover:hover {
+    background-color: #e9e4e4;
+}

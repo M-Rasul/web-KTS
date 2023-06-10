@@ -1,7 +1,7 @@
 .logo {
     display: flex;
     flex-direction: column;
-    color: #000000;
+    color: #bbb7b7;
 }
 .styled {
     font-style: italic;

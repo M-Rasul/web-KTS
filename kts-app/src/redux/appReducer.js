@@ -16,9 +16,9 @@ export const setInitializedAC = () => ({type: SET_INITIALIZED});
 
 export const setInitialized = () => 
     (dispatch) => {
-    const promise = dispatch(setMe());
-    promise.then(() => {
+    // const promise = dispatch(setMe());
+    // promise.then(() => {
         dispatch(setInitializedAC());
-    })
+    // })
 }
 export default appReducer;

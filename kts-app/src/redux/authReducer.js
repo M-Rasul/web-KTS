@@ -24,9 +24,11 @@ const authReducer = (state = initialState, action) => {
             return state;
     }
 }
-const loginAC = ({nickName, image, age, description}) => ({type: LOG_IN, profileInfo: {nickName, image, age, description}});
-const setMeAC = ({nickName, image, age, description}) => ({type: SET_ME, profileInfo: {nickName, image, age, description}});
-const logoutAC = () => ({type: LOG_OUT});
+export const loginAC = (data) => 
+({type: LOG_IN, profileInfo: {nickName: data.nickName, image: data.image, age: data.age, description: data.description}});
+export const setMeAC = (data) => 
+({type: SET_ME, profileInfo: {nickName: data.nickName, image: data.image, age: data.age, description: data.description}});
+export const logoutAC = () => ({type: LOG_OUT});
 
 
 export const login = (data) => async (dispatch) => {
