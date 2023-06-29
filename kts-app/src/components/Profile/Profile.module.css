@@ -1,0 +1,16 @@
+.description {
+    width: 70%;
+    margin-top: 30px;
+}
+.flex2_margin {
+    margin-top: 50px;
+}
+.text_profile {
+    color:#1c1919;
+}
+.flex_column_profile {
+    align-self: flex-start;
+}
+.text_bold {
+    font-weight: bold;
+}

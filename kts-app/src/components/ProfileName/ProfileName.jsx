@@ -1,5 +1,5 @@
 import { useState } from "react";
-import downSvg from "../../assets/svg/free-arrow-down-icon-3101-thumb.png";
+import downSvg from "../../assets/svg/down.png";
 import logoutSvg from "../../assets/svg/logout.png";
 import style from "./ProfileName.module.css";
 import { useNavigate } from "react-router";
@@ -20,13 +20,13 @@ const ProfileName = (props) => {
                 <img src={props.ava} alt="avatar" className={style.ava} />
                 <p>{props.name}</p>
             </div>
-            <img src={downSvg} className="icon" onClick={onIconClick} />
+            <img src={downSvg} className="icon icon_pointer" onClick={onIconClick} />
         </div>
         {modalIsOpen && (
             <div className={style.dropdown}>
                 <div className={`flex2 ${style.flex2_withHover}`} onClick={onLogoutClick}>
                     <img src={logoutSvg} alt="logout" className="icon" />
-                    <p>logout</p>
+                    <p className={style.dark}>logout</p>
                 </div>
             </div>
         )}

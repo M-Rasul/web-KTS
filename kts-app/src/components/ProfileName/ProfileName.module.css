@@ -1,5 +1,6 @@
 .ava {
-    width: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
 }
 /* .flex3_width {
@@ -14,14 +15,20 @@ p {
     margin-left: 10px;
     color: #bbb7b7;
 }
+.dark {
+    color: #2e2d2d;
+}
 .dropdown {
+    padding-left: 10px;
+    padding-right: 10px;
     position: absolute;
-    top: 20px;
-    border-radius: 10px;
+    top: 30px;
+    border-radius: 4px;
+    border: 1px solid #2e2d2d;
     background-color: #bbb7b7;
     align-self: flex-end;
-    height: 50px;
-    width: 100px;
+    height: 70px;
+    width: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,6 +36,8 @@ p {
 .flex2_withHover {
     cursor: pointer;
     width: 100%;
+    border-radius: 4px;
+    transition-duration: 0.3s;
 }
 .flex2_withHover:hover {
     background-color: #e9e4e4;

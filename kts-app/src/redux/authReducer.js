@@ -6,11 +6,14 @@ const SET_ME = "SET_ME";
 const initialState = {
     profile: {
         nickName: "RasQa",
-        image: "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png",
+        image: "https://www.rd.com/wp-content/uploads/2019/01/shutterstock_673465372.jpg?fit=700,467",
         age: 21,
-        description: "I'ma cool boy!🤘"
+        description: "I'ma cool boy!🤘",
+        contentPosted: 14
     },
-    isAuth: true
+    isAuth: true,
+    token: null,
+    role: "user"
 }
 const authReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -31,9 +34,12 @@ export const setMeAC = (data) =>
 export const logoutAC = () => ({type: LOG_OUT});
 
 
-export const login = (data) => async (dispatch) => {
-    const response = await authAPI.signIn(data);
-    dispatch(loginAC(response.data));
+export const login = (userName, password) => (dispatch) => {
+    authAPI.signIn(userName, password)
+    .then(response => {
+        console.log(response);
+    });
+    // dispatch(loginAC(response.data));
 }
 export const logout = () => async (dispatch) => {
     const response = await authAPI.signOut();

@@ -1,0 +1,21 @@
+.contentWrapper {
+    /* height: 50%; */
+    width: 80%;
+    margin: 20px auto;
+}
+.contentList {
+    padding: 15px;
+    height: 530px;
+    background-color: #1c1919;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.centered {
+    align-self: center;
+    max-width: 200px;
+    margin: auto 0;
+}
+.lighter {
+    color: #bbb7b7;
+}

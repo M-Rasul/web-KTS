@@ -1,0 +1,11 @@
+.list {
+    list-style: none;
+    margin-top: 30px;
+}
+.link_margin {
+    margin-top: 50px;
+}
+.link_margin:hover {
+    background-color: #bbb7b7;
+    color: #1c1919;
+}

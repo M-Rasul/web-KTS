@@ -1,0 +1,27 @@
+.green {
+    color: #11c411;
+    margin-top: 15px;
+}
+.fixedHeight {
+    cursor: pointer;
+    margin-top: 50px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 15px;
+    transition-duration: 0.3s;
+}
+.fixedHeight:hover {
+    background-color: #282c34;
+}
+.fixedHeight_inner {
+    height: 150px;
+    margin-left: 15px;
+}
+.fixedHeightImage {
+    width: 20%;
+}
+.lighter {
+    color: #bbb7b7;
+}
+.darker {
+    color: #626262;
+}

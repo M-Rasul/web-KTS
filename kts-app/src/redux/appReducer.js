@@ -1,4 +1,4 @@
-import { setMe } from "./authReducer";
+import { login, setMe } from "./authReducer";
 
 const SET_INITIALIZED = "SET_INITIALIZED";
 const initialState = {
@@ -16,7 +16,7 @@ export const setInitializedAC = () => ({type: SET_INITIALIZED});
 
 export const setInitialized = () => 
     (dispatch) => {
-    // const promise = dispatch(setMe());
+    // dispatch(login("admin", "rasuladmin"));
     // promise.then(() => {
         dispatch(setInitializedAC());
     // })

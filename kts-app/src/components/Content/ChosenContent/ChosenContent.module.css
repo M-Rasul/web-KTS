@@ -1,0 +1,15 @@
+.centered {
+    align-items: center;
+}
+.contentImage {
+    width: 40%;
+}
+.withMargin {
+    margin-top: 30px;
+}
+.darker {
+    color: #1c1919;
+}
+.video {
+    width: 60%;
+}
