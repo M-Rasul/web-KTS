@@ -1,4 +1,4 @@
-import { authAPI } from "../api/api";
+import { authAPI, csrfAPI } from "../api/api";
 
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
@@ -13,7 +13,7 @@ const initialState = {
     },
     isAuth: true,
     token: null,
-    role: "user"
+    role: "moderator"
 }
 const authReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -34,11 +34,12 @@ export const setMeAC = (data) =>
 export const logoutAC = () => ({type: LOG_OUT});
 
 
-export const login = (userName, password) => (dispatch) => {
-    authAPI.signIn(userName, password)
+export const login = (email, password) => (dispatch) => {
+    authAPI.signIn(email, password)
     .then(response => {
         console.log(response);
     });
+    
     // dispatch(loginAC(response.data));
 }
 export const logout = () => async (dispatch) => {

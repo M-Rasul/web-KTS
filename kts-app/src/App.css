@@ -87,6 +87,8 @@ a, .link {
   background-color: #1c1919;
   width: 15%;
   height: 100vh;
+  position: sticky;
+  top: 0;
 }
 .main__content {
   background-color: #bbb7b7;
@@ -125,4 +127,32 @@ a, .link {
 }
 .icon_pointer {
   cursor: pointer;
+}
+.button {
+  margin-left: 15px;
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  transition-duration: 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:first-child {
+  margin-left: 0;
+}
+.button_approve {
+  border: 2px solid #11c411;
+  color: #11c411;
+}
+.button_approve:hover {
+  background-color: #11ab11;
+  color: #1c1919;
+}
+.button_decline {
+  border: 2px solid #a70707;
+  color: #a70707;
+}
+.button_decline:hover {
+  background-color: #930606;
+  color: #1c1919;
 }

@@ -10,11 +10,14 @@ import { Route, Routes } from 'react-router';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import { ContentContainer } from './components/Content/ContentContainer';
 import { ChosenContentContainer } from './components/Content/ChosenContent/ChosenContentContainer';
-const App = (props) => {
+const App = ({setInitialized, initialized, role, ...props}) => {
   useEffect(() => {
-    props.setInitialized();
+    setInitialized();
   }, [props]);
-  if(!props.initialized) return <Preloader />
+
+  const isModerator = role === "moderator" && true;
+
+  if(!initialized) return <Preloader />
   // if(!props.isAuth) return <Login />
   return (
       <div className="main__layout">
@@ -25,6 +28,8 @@ const App = (props) => {
             <Routes>
               <Route path="/profile" element={<ProfileContainer title="My Profile" />} />
               <Route path="/content" element={<ContentContainer title="Content" />} />
+              <Route path="/queue" element={<ContentContainer title="Content on queue" isModerator={isModerator} />} />
+              <Route path="/content/my" element={<ContentContainer title="My Content" />} />
               <Route path="/content/:id" element={<ChosenContentContainer />} />
             </Routes>
           </div>
@@ -35,7 +40,8 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     initialized: state.app.initialized,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    role: state.auth.role,
   }
 }
 export default connect(mapStateToProps, {setInitialized})(App);

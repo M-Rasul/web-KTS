@@ -11,7 +11,7 @@
     width: 150px;
     justify-content: center;
 }
-p {
+.text {
     margin-left: 10px;
     color: #bbb7b7;
 }

@@ -1,0 +1,14 @@
+.smallAvatar {
+    width: 50px;
+    border-radius: 15px;
+    margin-right: 15px;
+}
+.lighter {
+    color: #282c34;
+}
+.darker {
+    color: #1c1919;
+}
+.withMargin {
+    margin-top: 30px;
+}

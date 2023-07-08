@@ -16,8 +16,8 @@ export const setInitializedAC = () => ({type: SET_INITIALIZED});
 
 export const setInitialized = () => 
     (dispatch) => {
-    // dispatch(login("admin", "rasuladmin"));
-    // promise.then(() => {
+    // dispatch(login("rasulmamashev@bk.ru", "madridista77"))
+    // .then(() => {
         dispatch(setInitializedAC());
     // })
 }

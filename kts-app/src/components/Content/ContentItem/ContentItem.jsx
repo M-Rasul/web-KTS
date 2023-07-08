@@ -1,26 +1,46 @@
 import style from "./ContentItem.module.css";
 import book from "../../../assets/images/book.png";
 import { useNavigate } from "react-router";
-const ContentItem = (props) => {
+import { connect } from "react-redux";
+import { approveContent } from "../../../redux/contentReducer";
+
+const ContentItem = ({description, id, type, isModerator, approveContent, image, name, contentId}) => {
     const navigate = useNavigate();
-    const description = props.description.length > 250 ? props.description.slice(0, 250) + "..." : props.description;
-    const chooseContent = function() {
-        navigate(`/content/${props.id}`, {state: {
-            content: {
-                id: props.id,
-                type: props.type.slice(0, -1)
-            }
-        }})
+    const descriptionShortened = description.length > 250 ? description.slice(0, 250) + "..." : description;
+    const chooseContent = function(e) {
+        if(!e.target.classList.contains("button")) {
+            navigate(`/content/${id}`, {state: {
+                content: {
+                    id: id,
+                    type: type.slice(0, -1),
+                    isModerator: isModerator
+                }
+            }})
+        }
     }
+
+    const onApproveClick = (id) => () => {
+        approveContent(id, type.slice(0, -1));
+    }
+
     return (
         <div className={`flex2 ${style.fixedHeight}`} onClick={chooseContent}>
-            <img src={props.image || book} alt="preview" className={style.fixedHeightImage} />
+            <img src={image || book} alt="preview" className={style.fixedHeightImage} />
             <div className={`flex_column ${style.fixedHeight_inner}`}>
-                <h3 className={style.lighter}>{props.name}</h3>
-                <p className={style.darker}>{description}</p>
-                <p className={style.green}>Approved my moderator</p>
+                <h3 className={style.lighter}>{name}</h3>
+                <p className={style.darker}>{descriptionShortened}</p>
+                {!isModerator && <p className={style.green}>Approved my moderator</p>}
+                {isModerator && (
+                    <div className={`flex2 ${style.margin}`}>
+                        <button className="button button_approve" onClick={onApproveClick(contentId)}>Approve</button>
+                        <button className="button button_decline">Decline</button>
+                    </div>
+                )}
             </div>
         </div>
     )
 }
-export default ContentItem;
+const mapStateToProps = (state) => {
+    return {}
+}
+export default connect(mapStateToProps, {approveContent})(ContentItem);

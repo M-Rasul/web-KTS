@@ -25,18 +25,40 @@ const Content = (props) => {
             <h2>{props.title}</h2>
             <div className={style.contentWrapper}>
                 <div className="flex5">
-                    <Tab text="Event" onClick={setContentType("events")} className={props.content.contentType === "events" && "active"} />
-                    <Tab text="Book" onClick={setContentType("books")} className={props.content.contentType === "books" && "active"} />
-                    <Tab text="Video" onClick={setContentType("videos")} className={props.content.contentType === "videos" && "active"} />
-                    <Tab text="Podcast" onClick={setContentType("podcasts")} className={props.content.contentType === "podcasts" && "active"} />
-                    <Tab text="File" onClick={setContentType("files")} className={props.content.contentType === "files" && "active"} />    
+                    <Tab 
+                    text="Event" 
+                    onClick={setContentType("events")} 
+                    className={props.content.contentType === "events" && "active"} 
+                    />
+                    <Tab 
+                    text="Book" 
+                    onClick={setContentType("books")} 
+                    className={props.content.contentType === "books" && "active"} 
+                    />
+                    <Tab 
+                    text="Video" 
+                    onClick={setContentType("videos")} 
+                    className={props.content.contentType === "videos" && "active"} 
+                    />
+                    <Tab 
+                    text="Podcast" 
+                    onClick={setContentType("podcasts")} 
+                    className={props.content.contentType === "podcasts" && "active"} 
+                    />
+                    <Tab 
+                    text="File" 
+                    onClick={setContentType("files")} 
+                    className={props.content.contentType === "files" && "active"} 
+                    />    
                 </div>
                 <div className={style.contentList}>
                     {
                         props?.content[props.content.contentType]?.length > 0 
-                        && props?.content[props.content.contentType].some(contentItem => !contentItem.content.isApproved)
+                        && props?.content[props.content.contentType]
+                        .some(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
                         ? (
-                            props?.content[props.content.contentType].filter(contentItem => !contentItem.content.isApproved)
+                            props?.content[props.content.contentType]
+                            .filter(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
                             .map((contentItem, index) => ( 
                             <ContentItem
                             key={index} 
@@ -45,6 +67,8 @@ const Content = (props) => {
                             description={contentItem.content.description}
                             id={contentItem.content.id}
                             type={props.content.contentType}
+                            isModerator={props.isModerator}
+                            contentId={contentItem.id}
                             />))
                         )
                         : (<div className={style.centered}><h2 className={style.lighter}>No Data</h2></div>)

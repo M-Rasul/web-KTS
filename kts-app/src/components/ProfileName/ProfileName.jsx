@@ -18,7 +18,7 @@ const ProfileName = (props) => {
         <div className={`flex3`}>
             <div className="flex2">
                 <img src={props.ava} alt="avatar" className={style.ava} />
-                <p>{props.name}</p>
+                <p className={style.text}>{props.name}</p>
             </div>
             <img src={downSvg} className="icon icon_pointer" onClick={onIconClick} />
         </div>
@@ -26,7 +26,7 @@ const ProfileName = (props) => {
             <div className={style.dropdown}>
                 <div className={`flex2 ${style.flex2_withHover}`} onClick={onLogoutClick}>
                     <img src={logoutSvg} alt="logout" className="icon" />
-                    <p className={style.dark}>logout</p>
+                    <p className={`${style.dark} ${style.text}`}>logout</p>
                 </div>
             </div>
         )}
