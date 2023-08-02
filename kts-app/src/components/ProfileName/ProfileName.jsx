@@ -3,6 +3,8 @@ import downSvg from "../../assets/svg/down.png";
 import logoutSvg from "../../assets/svg/logout.png";
 import style from "./ProfileName.module.css";
 import { useNavigate } from "react-router";
+import avatar from "../../assets/images/avatar.png";
+
 const ProfileName = (props) => {
     const navigate = useNavigate();
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,7 +19,7 @@ const ProfileName = (props) => {
     <div className={`flex_column ${style.flex_column_width}`}>
         <div className={`flex3`}>
             <div className="flex2">
-                <img src={props.ava} alt="avatar" className={style.ava} />
+                <img src={props.ava || avatar} alt="avatar" className={style.ava} />
                 <p className={style.text}>{props.name}</p>
             </div>
             <img src={downSvg} className="icon icon_pointer" onClick={onIconClick} />

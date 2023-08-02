@@ -1,0 +1,29 @@
+.login {
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginForm {
+    padding: 30px;
+    width: 40%;
+    height: 300px;
+    background-color: #bbb7b7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+.form {
+    margin-top: 30px;
+    row-gap: 15px;
+}
+.input_login {
+    width: 100%;
+}
+.login__link {
+    color: #1c1919;
+    margin-top: 15px;
+}

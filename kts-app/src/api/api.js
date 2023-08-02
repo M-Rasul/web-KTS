@@ -1,30 +1,22 @@
-import axios from "axios";
-const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000/',
-    withCredentials: false,
-    headers: {
-        "Content-Type": "application/json",
-        // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4ODkxMzYzMSwiaWF0IjoxNjg4ODI3MjMxLCJqdGkiOiI2ZjhmYTgwY2MwYjI0NDlkOTRiZjcxNTgxZmQ0YTEwZSIsInVzZXJfaWQiOjN9._80DoXN8a69vVCEzcDLSptP4ZezkhdBXzL9dTM1EKfM"
-    }
-  });
+import instance from "./axiosInterceptor";
+
  export const authAPI = {
     // GET
-    getCSRF() {
-        return instance.get("user-auth/login/");
-    },
-    me() {
-        return instance.get("me");
-    },
 
     // POST
+    verifyToken(token) {
+        return instance.post("/api/token/verify/", {
+            token,
+        })
+    },
+    refreshToken(refresh) {
+        return instance.post("api/token/refresh/", {refresh});
+    },
     signIn(email, password) {
-        return instance.post("user-auth/login/", {
+        return instance.post("api/token/", {
             email,
             password
         });
-    },
-    signOut() {
-        return instance.post("logout");
     },
 }
 export const contentAPI = {
@@ -69,10 +61,15 @@ export const contentAPI = {
         })
     }
 }
-export const userAPI = {
+export const usersAPI = {
 
     // GET
     getUser(id) {
-        return instance.get(`/kts/users/${id}`);
-    }
+        return instance.get(`/kts/user/${id}`);
+    },
+
+    // POST
+    createUser(nickname, email, password, image, age, description) {
+        return instance.post("kts/users/", {nickname, email, password, image, age, description});
+    },
 }

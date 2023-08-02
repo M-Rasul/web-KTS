@@ -55,14 +55,16 @@ const Content = (props) => {
                     {
                         props?.content[props.content.contentType]?.length > 0 
                         && props?.content[props.content.contentType]
-                        .some(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
+                        // .some(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
+                        .some(contentItem => !contentItem.content.isApproved)
                         ? (
                             props?.content[props.content.contentType]
-                            .filter(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
+                            // .filter(contentItem => props.isModerator ? !contentItem.content.isApproved : contentItem.content.isApproved)
+                            .filter(contentItem => !contentItem.content.isApproved)
                             .map((contentItem, index) => ( 
                             <ContentItem
                             key={index} 
-                            image={contentItem.content.image} 
+                            image={contentItem?.content?.image} 
                             name={contentItem.content.name} 
                             description={contentItem.content.description}
                             id={contentItem.content.id}

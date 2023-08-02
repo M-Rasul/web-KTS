@@ -1,0 +1,33 @@
+.registration {
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registrationForm {
+    padding: 30px;
+    width: 40%;
+    min-height: 600px;
+    background-color: #bbb7b7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+.registration__link {
+    color: #1c1919;
+    margin-top: 15px;
+}
+.form {
+    margin-top: 30px;
+    row-gap: 15px;
+}
+.input_registration {
+    width: 100%;
+}
+.input_large {
+    height: 100px;
+    resize: none;
+}
